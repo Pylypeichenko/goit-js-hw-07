@@ -29,7 +29,7 @@ galleryRef.addEventListener("click", (event) => {
   }
 
   const instance = basicLightbox.create(`
-    <img class="modal-basic" src="${event.target.dataset.source}" width="800" height="600">
+    <img loading="lazy" class="modal-basic" src="${event.target.dataset.source}" width="800" height="600">
 `);
 
   instance.show();
@@ -43,17 +43,6 @@ galleryRef.addEventListener("click", (event) => {
       instance.close();
     }
   });
-});
-
-document.addEventListener("keydown", (e) => {
-  const escapeModal = e.code === "Escape";
-  const onModalClick = document.querySelector(".modal-basic");
-  if (!onModalClick) {
-    return;
-  }
-  if (escapeModal) {
-    basicLightbox.close(onModalClick);
-  }
 });
 
 //  <div class="gallery__item">
