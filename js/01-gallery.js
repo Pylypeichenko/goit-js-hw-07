@@ -34,15 +34,19 @@ galleryRef.addEventListener("click", (event) => {
 
   instance.show();
 
-  document.addEventListener("keydown", (e) => {
-    const escapeModal = e.code === "Escape";
-    if (!instance) {
-      return;
-    }
-    if (escapeModal) {
-      instance.close();
-    }
-  });
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      const escapeModal = e.code === "Escape";
+      if (!instance) {
+        return;
+      }
+      if (escapeModal) {
+        instance.close();
+      }
+    },
+    { once: true }
+  );
 });
 
 //  <div class="gallery__item">
